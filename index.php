@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ajout produit</title>
+    <title>Ajouts produit</title>
 </head>
 <body>
     <h1>Ajouter un produit</h1>
