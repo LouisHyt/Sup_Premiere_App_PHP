@@ -100,7 +100,11 @@
             const image = parent.querySelector("td[data-label=Image]").getAttribute("data-background");
 
             //Obligation de l'executer en Jquery (Je n'aime pas le jquery);
-            $('.ui.modal').modal('show');
+            $('.ui.modal')
+                .modal({
+                    transition: 'fade down'
+                })
+                .modal('show');
 
             //On remplace le contenu du modal
             const modal = document.querySelector(".ui.modal");
