@@ -1,0 +1,93 @@
+body{
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+header.ui.menu{
+    height: 50px;
+    margin: 0;
+    min-height: 50px;
+}
+
+header > a {
+    font-size: 18px;
+}
+
+header > .recap{
+    position: relative;
+}
+
+header > .recap > .product_count{
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 23px;
+    height: 23px;
+    background-color: rgb(124, 191, 224);
+    color: white;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-bottom-left-radius: 15px;
+    font-size: 0.8em;
+
+}
+
+.container{
+    margin-top: 100px;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.container h1{
+    margin-bottom: 40px;
+    font-size: 2.5em;
+}
+
+.container form{
+    width: 400px;
+}
+
+.products{
+    width: 70%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.products .emptyInfo{
+    margin-top: 100px;
+    font-weight: bold;
+    font-size: 1.2em;
+}
+
+.last-row{
+    background-color: rgb(232, 232, 232);
+}
+
+.rowQuantity{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.rowQuantity .ui.icon.button{
+    margin: 0;
+}
+
+.ui.button.delete-product,
+.ui.button.delete-allproducts{
+    background-color: rgb(215, 56, 56);
+    color: white;
+    transition: background-color 0.2s;
+}
+
+.ui.button.delete-product:hover,
+.ui.button.delete-allproducts:hover{
+    background-color: rgb(235, 72, 72);
+}
