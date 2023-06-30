@@ -29,8 +29,8 @@
                 foreach ($_SESSION["products"] as $index => $product) {
                     echo "<tr>",
                         "<td data-label='#'>".$index."</td>",
-                        "<td data-label='Image' style='background-image: url(".$product["imagePath"].")'></td>",
-                        "<td data-label='Nom'>".$product['name']."</td>",
+                        "<td data-label='Image' data-background=".$product["imagePath"]." style='background-image: url(".$product["imagePath"].")'></td>",
+                        "<td data-label='Nom'><a class='openProduct'>".$product['name']."</a></td>",
                         "<td data-label='Description'>".$product['description']."</td>",
                         "<td data-label='Prix'>".number_format($product['price'], 2, ",", "&nbsp;")."&nbsp;€</td>",
                         "<td data-label='Quantité' class='rowQuantity'>
@@ -74,6 +74,45 @@
     </table>
     <?php } ?>
 </div>
+<!-- Modal -->
+<div class="ui modal">
+  <i class="close icon"></i>
+  <div class="header">
+    
+  </div>
+  <div class="image content">
+    <div class="ui medium image">
+      <img src="" style="max-width: 300px;">
+    </div>
+    <div class="description">
+      <p></p>
+    </div>
+  </div>
+</div>
+
+<script>
+    const openProduct = document.querySelectorAll(".openProduct");
+    for(const product of openProduct){
+        product.addEventListener("click", e => {
+            const parent = e.target.parentNode.parentNode;
+            const description = parent.querySelector("td[data-label=Description]").textContent;
+            const productName = parent.querySelector("td[data-label=Nom]").textContent;
+            const image = parent.querySelector("td[data-label=Image]").getAttribute("data-background");
+
+            //Obligation de l'executer en Jquery (Je n'aime pas le jquery);
+            $('.ui.modal').modal('show');
+
+            //On remplace le contenu du modal
+            const modal = document.querySelector(".ui.modal");
+            modal.querySelector(".header").textContent = productName;
+            modal.querySelector(".ui.medium.image > img").src = image;
+            modal.querySelector(".description").textContent = description;
+
+
+        })
+    }
+
+</script>
 
 <?php
     $content = ob_get_clean();

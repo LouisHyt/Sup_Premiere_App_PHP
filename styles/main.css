@@ -70,10 +70,21 @@ header > .recap > .product_count{
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-    background-origin: content-box;
+    background-origin: padding-box;
     padding: 5px;
+    max-width: 50px;
 }
 
+.products-table tbody tr td[data-label="Description"]{
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    max-width: 50px;
+}
+
+.openProduct{
+    cursor: pointer;
+}
 
 .last-row{
     background-color: rgb(232, 232, 232);
