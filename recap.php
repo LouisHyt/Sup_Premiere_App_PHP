@@ -1,3 +1,7 @@
+<?php
+    ob_start();
+?>
+
 <div class="products">
     <?php
     if(!isset($_SESSION['products']) || empty($_SESSION['products'])){
@@ -64,3 +68,10 @@
     </table>
     <?php } ?>
 </div>
+
+<?php
+    $content = ob_get_clean();
+    $title = "Récap";
+    $currentRoute = "recap";
+    require "template.php";
+?>
