@@ -26,7 +26,7 @@
         <input type="file" name="image" accept="image/png, image.jpg, image.jpeg">
     </div>
     
-    <button type="submit" class="ui animated button">
+    <button type="submit" class="ui animated button blue">
         <div class="visible content">Ajouter</div>
         <div class="hidden content">
             <i class="shop icon"></i>
