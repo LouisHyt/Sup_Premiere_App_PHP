@@ -66,6 +66,15 @@ header > .recap > .product_count{
     font-size: 1.2em;
 }
 
+ .products-table tbody tr td[data-label="Image"]{
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-origin: content-box;
+    padding: 5px;
+}
+
+
 .last-row{
     background-color: rgb(232, 232, 232);
 }

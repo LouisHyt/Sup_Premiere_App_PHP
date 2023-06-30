@@ -1,6 +1,5 @@
 <?php
-    session_start();
-    $productsCount = isset($_SESSION['products']) ? count($_SESSION['products']) : "0";
+    require_once("utils/functions.php");
 ?>
 
 <!DOCTYPE html>
@@ -21,7 +20,7 @@
         </a>
         <a class="recap item <?= ($currentRoute == 'recap') ? 'active': '' ?>" href="./recap">
             Recap
-            <p class="product_count"> <?= $productsCount ?></p>
+            <p class="product_count"> <?= getProductsCount() ?></p>
         </a>
     </header>
     <div class="container">

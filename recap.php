@@ -1,5 +1,7 @@
 <?php
     ob_start();
+    session_start();
+    require_once("./utils/functions.php")
 ?>
 
 <div class="products">
@@ -12,7 +14,9 @@
         <thead>
             <tr>
                 <th>#</th>
+                <th>Image</th>
                 <th>Nom</th>
+                <th>Description</th>
                 <th>Prix</th>
                 <th>Quantité</th>
                 <th>Total</th>
@@ -25,7 +29,9 @@
                 foreach ($_SESSION["products"] as $index => $product) {
                     echo "<tr>",
                         "<td data-label='#'>".$index."</td>",
+                        "<td data-label='Image' style='background-image: url(".$product["imagePath"].")'></td>",
                         "<td data-label='Nom'>".$product['name']."</td>",
+                        "<td data-label='Description'>".$product['description']."</td>",
                         "<td data-label='Prix'>".number_format($product['price'], 2, ",", "&nbsp;")."&nbsp;€</td>",
                         "<td data-label='Quantité' class='rowQuantity'>
                             <a href='traitement.php?action=changeQuantity&id=$index&operation=minus'>
@@ -52,8 +58,8 @@
                     $totalgeneral += $product['total'];
                 } 
                 echo "<tr class='last-row'>",
-                        "<td colspan=4> Nombre de produits: ".count($_SESSION["products"])." </td>",
-                        "<td> Total général: <strong>".number_format($totalgeneral, 2, ",", "&nbsp;")."&nbsp;€</strong></td>",
+                        "<td colspan=5> Nombre de produits: ".getProductsCount()." </td>",
+                        "<td colspan=2> Total général: <strong>".number_format($totalgeneral, 2, ",", "&nbsp;")."&nbsp;€</strong></td>",
                         "<td>
                             <a href='traitement.php?action=deleteAllProduct'>
                                 <button class='ui icon button delete-allproducts' title='Supprimer tous les produits'>
